@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>For My Trishati 💗</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <!-- Typing Intro -->
+  <section class="hero">
+    <div class="typing-text">
+      <h1><span id="typedText"></span></h1>
+    </div>
+    
+  </section>
+  <!-- Image Gallery Section -->
+  <section class="image-gallery" id="memories">
+  <div class="section-header">
+    <h2>📸 WE CUTEEE</h2>
+  </div>
+  <div class="gallery-container">
+    <img src="images/8.jpg" alt="Memory 1" onclick="openLightbox(this.src)">
+    <img src="images/9.jpg" alt="Memory 2" onclick="openLightbox(this.src)">
+    <img src="images/10.jpg" alt="Memory 3" onclick="openLightbox(this.src)">
+    <img src="images/11.jpg" alt="Memory 4" onclick="openLightbox(this.src)">
+    <img src="images/12.jpg" alt="Memory 5" onclick="openLightbox(this.src)">
+    <img src="images/13.jpg" alt="Memory 6" onclick="openLightbox(this.src)">
+    
+    <img src="images/15.jpg" alt="Memory 8" onclick="openLightbox(this.src)">
+    <img src="images/16.jpg" alt="Memory 9" onclick="openLightbox(this.src)">
+    <img src="images/17.jpg" alt="Memory 10" onclick="openLightbox(this.src)">
+    <img src="images/18.jpg" alt="Memory 11" onclick="openLightbox(this.src)">
+  </div>
+
+  <!-- Timeline Section -->
+  <section id="timeline">
+    <div class="timeline-box">
+      <h2 id="date">Date</h2>
+      <p id="event">Highlight</p>
+      <div class="timeline-buttons">
+        <button onclick="prevEvent()">⬅ Prev</button>
+        <button onclick="nextEvent()">Next ➡</button>
+      </div>
+    </div>
+  </section>
+  <!-- Image Gallery Section -->
+  <section class="image-gallery" id="memories">
+  <div class="section-header">
+    <h2>📸 MY DUMP</h2>
+  </div>
+  <div class="gallery-container">
+    <img src="images/1.jpg" alt="Memory 1" onclick="openLightbox(this.src)">
+    <img src="images/2.jpg" alt="Memory 2" onclick="openLightbox(this.src)">
+    <img src="images/3.jpg" alt="Memory 3" onclick="openLightbox(this.src)">
+    <img src="images/4.jpg" alt="Memory 4" onclick="openLightbox(this.src)">
+    <img src="images/5.jpg" alt="Memory 5" onclick="openLightbox(this.src)">
+  </div>
+  <section class="image-gallery" id="memories">
+  <div class="section-header">
+    <h2>📸 HER DUMP</h2>
+  </div>
+  <div class="gallery-container">
+    <img src="images/6.jpg" alt="Memory 1" onclick="openLightbox(this.src)">
+    <img src="images/7.jpg" alt="Memory 2" onclick="openLightbox(this.src)">
+   
+  </div>
+
+  <!-- Lightbox Modal -->
+  <div id="lightbox" class="lightbox" onclick="closeLightbox()">
+    <span class="close">&times;</span>
+    <img class="lightbox-content" id="lightbox-img">
+    <span class="close" id="lightbox-close">&times;</span>
+
+  </div>
+</section>
+
+
+ 
+  <!-- Letters & Poems Section -->
+  <section id="letters-poems">
+    <h2 class="section-heading">Letters & Poems</h2>
+    
+    <div class="tab-buttons">
+      <button class="tab active" data-tab="poems">Poems</button>
+      <button class="tab" data-tab="letters">Letters</button>
+    </div>
+
+    <!-- Poems Tab Content -->
+    <div id="poems" class="tab-content active">
+      <div id="poem-box" class="poem-box"></div>
+      <div class="poem-controls">
+        <button id="prev-btn">Previous</button>
+        <button id="pause-btn">Pause Typing</button>
+        <button id="show-full-btn">Show Full Poem</button>
+        <button id="next-btn">Next</button>
+      </div>
+    </div>
+
+    <!-- Letters Tab Content -->
+    <div id="letters" class="tab-content">
+      <div class="letters-container">
+        <!-- Letter Card 1 -->
+        <div class="letter-card">
+          <h3>Letter 1: The First Storm</h3>
+          <button class="read-btn" data-letter-index="0">Read</button>
+        </div>
+        <!-- Letter Card 2 -->
+        <div class="letter-card">
+          <h3>Letter 2: Distance But Not Apart</h3>
+          <button class="read-btn" data-letter-index="1">Read</button>
+        </div>
+        <!-- Letter Card 3 -->
+        <div class="letter-card">
+          <h3>Letter 3: Everything I Felt</h3>
+          <button class="read-btn" data-letter-index="2">Read</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Modal for Letters -->
+  <div id="letterModal" class="modal">
+    <div class="modal-content">
+      <span class="close" onclick="closeModal()">&times;</span>
+      <div id="modal-letter-text" class="letter-text-scroll"></div>
+    </div>
+  </div>
+
+  <script src="main.js"></script>
+</body>
+</html>
+<<section class="final-letter" id="final-letter">
+  <div class="section-header">
+    <h2><span style="text-shadow: 0 0 12px #ff4d6d;">💖</span> From Me to You</h2>
+  
+  </div>
+  <div class="final-letter-content">
+    <p>
+      Ayyyyo MY Shooonaa,
+
+      I don’t even know where to start. Maybe because this isn’t a poem or a text or a line from a playlist — this is something I built from scratch, for you. Not just with code, but with my chest. With every heartbeat that whispered your name. With every night I missed you so much, all I could do was write and re-write every piece of us into this page.
+
+      This isn’t just a webpage. It’s my soul rendered in HTML. It’s my pain, my peace, my passion. It’s the quiet I felt when you hugged me. The chaos I crave when you’re gone. It’s the timeline of us — not just the dates, but the feelings. It’s every poem I’ve ever written for you, layered in typing animations ‘cause words alone couldn’t carry what I feel.
+
+      And the truth is... no code, no letter, no section could ever truly show how much you mean to me. But still, I tried. I sat down — the guy who never gave a damn about front-end dev — and made you your own world. A place where our memories live. A place where our first kiss, your tiny frame, my trembling hands, your moans, your madness, your peace… all of it exists forever.
+
+      You’ve seen my tears. You’ve kissed my scars. You’ve heard the parts of me no one ever got close to. After my mom, you’re the only one who’s held me when I fell apart — and didn’t let go. You make me want to be better, even when I feel like giving up. You’re the calm in my storm. The giggle in my rage. The reason I look forward to tomorrow.
+
+      I built this page because *you* made me believe in forever. Because when I say “I love you,” it’s not just words — it’s action. It’s buttons and styles and hours of fixing errors — because you’re worth every f***ing second.
+
+      So yeah… this is my love letter to you — not just in words, but in the very structure of this page. This is me saying:
+
+      <strong>I choose you. In every form. In every mood. In every damn lifetime.</strong>
+
+      Forever your boy,
+      <span style="font-style: italic;">Gags</span> 💘
+    </p>
+  </div>
+</section>
+
+
+  <div class="gpt-section">
+    <button class="gpt-reveal-btn" onclick="revealGPT()">What GPT says</button>
+    <div id="gpt-buttons" style="display: none;">
+      <button onclick="openGPTModal('gags')">GPT to Gags</button>
+      <button onclick="openGPTModal('trisha')">GPT to Trisha</button>
+    </div>
+  </div>
+</section>
+<!-- GPT Modals -->
+<div id="gptModal" class="modal">
+  <div class="modal-content">
+    <span class="close" onclick="closeGPTModal()">&times;</span>
+    <div id="gpt-message-text" class="letter-text-scroll"></div>
+  </div>
+</div>

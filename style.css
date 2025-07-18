@@ -1,0 +1,679 @@
+/* ===== CSS Variables ===== */
+:root {
+  --primary-color: #880e4f;
+  --secondary-color: #d81b60;
+  --accent-color: #ff6b6b;
+  --light-pink: #fce4ec;
+  --medium-pink: #f8bbd0;
+  --dark-pink: #ad1457;
+  --text-color: #333;
+  --white: #fff;
+  --shadow-sm: 0 4px 8px rgba(0,0,0,0.1);
+  --shadow-md: 0 8px 16px rgba(0,0,0,0.15);
+  --transition: all 0.3s ease;
+}
+
+/* ===== Base Styles ===== */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Segoe UI', 'Roboto', sans-serif;
+  background: linear-gradient(135deg, var(--light-pink), var(--medium-pink));
+  color: var(--text-color);
+  line-height: 1.6;
+  overflow-x: hidden;
+  min-height: 100vh;
+}
+
+/* ===== Typography ===== */
+h1, h2, h3 {
+  color: var(--primary-color);
+  font-weight: 700;
+  line-height: 1.2;
+}
+
+h1 {
+  font-size: clamp(1.8rem, 5vw, 2.5rem);
+}
+
+h2 {
+  font-size: clamp(1.5rem, 4vw, 2.2rem);
+}
+
+h3 {
+  font-size: clamp(1.2rem, 3vw, 1.5rem);
+}
+
+p {
+  margin-bottom: 1rem;
+}
+
+/* ===== Layout Sections ===== */
+section {
+  padding: 4rem 1rem;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+/* ===== Hero Section ===== */
+.hero {
+  background: linear-gradient(135deg, #ff9a9e 0%, #fad0c4 100%);
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.hero::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" preserveAspectRatio="none"><path fill="rgba(255,255,255,0.1)" d="M0,0 L100,0 L100,100 Q50,80 0,100 Z"></path></svg>');
+  background-size: 100% auto;
+  background-repeat: no-repeat;
+  background-position: bottom;
+  z-index: 0;
+}
+
+.typing-text {
+  position: relative;
+  z-index: 1;
+}
+
+.typing-text h1 {
+  color: var(--white);
+  text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
+  margin-bottom: 1rem;
+}
+
+/* ===== Timeline Section ===== */
+#timeline {
+  background-color: rgba(255, 255, 255, 0.3);
+  backdrop-filter: blur(5px);
+}
+
+.timeline-box {
+  background: rgba(255, 255, 255, 0.85);
+  padding: 2rem;
+  border-radius: 1.5rem;
+  max-width: 600px;
+  width: 90%;
+  margin: 0 auto;
+  box-shadow: var(--shadow-md);
+  text-align: center;
+  animation: fadeIn 0.5s ease;
+}
+
+#date {
+  margin-bottom: 0.5rem;
+  color: var(--primary-color);
+}
+
+#event {
+  color: #4a148c;
+  margin-bottom: 2rem;
+  font-style: italic;
+  font-size: 1.1rem;
+}
+
+.timeline-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  margin-top: 1.5rem;
+}
+
+.timeline-buttons button {
+  background-color: var(--secondary-color);
+  color: var(--white);
+  border: none;
+  padding: 0.6rem 1.5rem;
+  border-radius: 2rem;
+  cursor: pointer;
+  font-weight: 600;
+  transition: var(--transition);
+  box-shadow: var(--shadow-sm);
+  font-size: 0.9rem;
+}
+
+.timeline-buttons button:hover {
+  background-color: var(--dark-pink);
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-md);
+}
+
+/* Image Gallery Section */
+.image-gallery {
+  padding: 60px 20px;
+  background: linear-gradient(to bottom, #fff0f5, #ffe6f0);
+  font-family: 'Segoe UI', sans-serif;
+}
+
+.image-gallery .section-header h2 {
+  font-size: 2rem;
+  color: #ff4d6d;
+  text-align: center;
+  margin-bottom: 30px;
+  text-shadow: 0 0 8px rgba(255, 128, 171, 0.3);
+}
+
+.gallery-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: center;
+  align-items: center;
+}
+
+.gallery-container img {
+  width: 250px;
+  height: auto;
+  border-radius: 15px;
+  box-shadow: 0 6px 20px rgba(255, 105, 180, 0.25);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  cursor: pointer;
+}
+
+.gallery-container img:hover {
+  transform: scale(1.05);
+  box-shadow: 0 12px 30px rgba(255, 105, 180, 0.35);
+}
+/* Lightbox Styles */
+.lightbox {
+  display: none;
+  position: fixed;
+  z-index: 999;
+  padding-top: 60px;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgba(0, 0, 0, 0.8);
+  justify-content: center;
+  align-items: center;
+}
+
+.lightbox-content {
+  margin: auto;
+  display: block;
+  max-width: 90%;
+  max-height: 80vh;
+  border-radius: 12px;
+  box-shadow: 0 0 30px rgba(255, 105, 180, 0.3);
+  animation: zoomIn 0.3s ease;
+}
+.lightbox {
+  display: none;
+  position: fixed;
+  z-index: 999;
+  padding-top: 60px;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgba(0, 0, 0, 0.8);
+  justify-content: center;
+  align-items: center;
+}
+
+.lightbox-content {
+  max-width: 90%;
+  max-height: 80vh;
+  border-radius: 12px;
+  box-shadow: 0 0 30px rgba(255, 105, 180, 0.3);
+  animation: zoomIn 0.3s ease;
+}
+
+@keyframes zoomIn {
+  from {
+    transform: scale(0.7);
+    opacity: 0;
+  }
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+.close {
+  position: absolute;
+  top: 30px;
+  right: 50px;
+  color: #fff;
+  font-size: 35px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.close:hover {
+  color: #ff4d6d;
+}
+
+@keyframes zoomIn {
+  from {
+    transform: scale(0.7);
+    opacity: 0;
+  }
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+.close {
+  position: absolute;
+  top: 30px;
+  right: 50px;
+  color: #fff;
+  font-size: 35px;
+  font-weight: bold;
+  transition: 0.3s;
+  cursor: pointer;
+}
+
+.close:hover {
+  color: #ff4d6d;
+}
+
+
+/* ===== Letters & Poems Section ===== */
+#letters-poems {
+  background: linear-gradient(135deg, #ffe3ec, #f3f4f6);
+  text-align: center;
+}
+
+.section-heading {
+  margin-bottom: 2rem;
+  position: relative;
+  display: inline-block;
+}
+
+.section-heading::after {
+  content: '';
+  position: absolute;
+  bottom: -10px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 80px;
+  height: 3px;
+  background: var(--accent-color);
+}
+
+/* Tab Navigation */
+.tab-buttons {
+  margin-bottom: 2rem;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 0.8rem;
+}
+
+.tab {
+  background: var(--white);
+  border: none;
+  padding: 0.8rem 1.5rem;
+  font-size: 1rem;
+  border-radius: 2rem;
+  cursor: pointer;
+  box-shadow: 0 0 10px rgba(255, 192, 203, 0.6);
+  transition: var(--transition);
+  font-weight: 600;
+}
+
+.tab:hover,
+.tab.active {
+  background: var(--accent-color);
+  color: var(--white);
+  box-shadow: 0 0 15px rgba(255, 107, 107, 0.7);
+}
+
+/* Tab Content */
+.tab-content {
+  display: none;
+  animation: fadeIn 0.5s ease;
+}
+
+.tab-content.active {
+  display: block;
+}
+
+/* Poem Display - UPDATED FOR CENTERED TEXT */
+#poem-box {
+  background: var(--white);
+  border-radius: 1.25rem;
+  padding: 2rem;
+  width: 90%;
+  max-width: 700px;
+  margin: 0 auto 1.5rem;
+  min-height: 300px;
+  box-shadow: var(--shadow-sm);
+  font-size: 1.1rem;
+  line-height: 1.8;
+  color: #444;
+  text-align: center; /* Changed from left to center */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Poem line styling */
+.poem-line {
+  display: block;
+  width: 100%;
+  text-align: center;
+  margin: 0.25em 0;
+}
+
+/* Stanza spacing */
+.poem-stanza {
+  margin-bottom: 1.5em;
+  width: 100%;
+}
+
+.poem-controls {
+  margin: 2rem 0;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.poem-controls button {
+  background: var(--accent-color);
+  border: none;
+  padding: 0.7rem 1.5rem;
+  min-width: 140px;
+  font-size: 1rem;
+  color: var(--white);
+  border-radius: 2rem;
+  cursor: pointer;
+  transition: var(--transition);
+  box-shadow: var(--shadow-sm);
+  font-weight: 600;
+}
+
+.poem-controls button:hover {
+  background: #ff4757;
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-md);
+}
+
+/* Letters Display */
+.letters-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1.5rem;
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 1rem;
+}
+
+.letter-card {
+  background: linear-gradient(to right, #ffdde1, #ee9ca7);
+  padding: 1.5rem;
+  border-radius: 1rem;
+  box-shadow: var(--shadow-sm);
+  transition: var(--transition);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.letter-card:hover {
+  transform: translateY(-5px);
+  box-shadow: var(--shadow-md);
+}
+
+.letter-card h3 {
+  margin-bottom: 1rem;
+  text-align: center;
+}
+
+.read-btn {
+  background: var(--white);
+  color: var(--accent-color);
+  border: 2px solid var(--accent-color);
+  padding: 0.5rem 1.5rem;
+  border-radius: 2rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: var(--transition);
+  margin-top: auto;
+}
+
+.read-btn:hover {
+  background: var(--accent-color);
+  color: var(--white);
+}
+
+/* Modal Styles */
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 1000;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.7);
+  overflow: auto;
+  backdrop-filter: blur(3px);
+}
+
+.modal-content {
+  background: var(--white);
+  margin: 5vh auto;
+  padding: 2rem;
+  border-radius: 1rem;
+  width: 90%;
+  max-width: 700px;
+  max-height: 90vh;
+  overflow-y: auto;
+  box-shadow: 0 5px 25px rgba(0,0,0,0.3);
+  position: relative;
+  animation: modalFadeIn 0.3s ease;
+}
+
+.letter-text-scroll {
+  white-space: pre-wrap;
+  font-size: 1.05rem;
+  line-height: 1.7;
+  padding: 1rem 0;
+}
+
+.close {
+  color: var(--accent-color);
+  font-size: 1.8rem;
+  font-weight: bold;
+  position: absolute;
+  right: 1.2rem;
+  top: 0.8rem;
+  cursor: pointer;
+  transition: var(--transition);
+  line-height: 1;
+}
+
+.close:hover {
+  color: #ff4757;
+  transform: scale(1.1);
+}
+
+/* Animations */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes modalFadeIn {
+  from { opacity: 0; transform: translateY(-20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  section {
+    padding: 3rem 1rem;
+  }
+  
+  .hero h1 {
+    font-size: 2rem;
+  }
+  
+  .section-heading {
+    font-size: 1.8rem;
+  }
+  
+  #poem-box {
+    width: 95%;
+    padding: 1.5rem;
+  }
+  
+  .letters-container {
+    grid-template-columns: 1fr;
+  }
+  
+  .modal-content {
+    padding: 1.5rem;
+  }
+}
+
+@media (max-width: 480px) {
+  section {
+    padding: 2rem 1rem;
+  }
+  
+  .hero h1 {
+    font-size: 1.6rem;
+  }
+  
+  .tab {
+    padding: 0.6rem 1rem;
+    font-size: 0.9rem;
+  }
+  
+  .poem-controls button {
+    min-width: 120px;
+    padding: 0.6rem 1rem;
+    font-size: 0.9rem;
+  }
+  
+  .modal-content {
+    padding: 1.2rem;
+    width: 95%;
+  }
+  
+  .close {
+    font-size: 1.5rem;
+    right: 1rem;
+    top: 0.5rem;
+  }
+}
+.final-letter-content {
+  max-width: 750px;
+  margin: auto;
+  font-size: 1.1rem;
+  background: rgba(255, 255, 255, 0.08);
+  padding: 30px;
+  border-radius: 15px;
+  line-height: 1.8;
+}
+
+.gpt-section {
+  text-align: center;
+  margin-top: 30px;
+}
+
+.gpt-reveal-btn {
+  padding: 12px 25px;
+  font-size: 1.1rem;
+  background: #ffffff1c;
+  color: #fdfdfd;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: 0.3s;
+  font-weight: bold;
+}
+
+.gpt-reveal-btn:hover {
+  background-color: #ff7aa6;
+  color: #000;
+}
+
+#gpt-buttons {
+  display: flex;
+  gap: 20px;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+#gpt-buttons button {
+  padding: 10px 20px;
+  font-size: 1rem;
+  background: #ffe4f1;
+  color: #000;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: 0.3s;
+  font-weight: bold;
+}
+
+#gpt-buttons button:hover {
+  background: #ffb8d0;
+}
+/* Final Letter Section */
+.final-letter {
+  padding: 60px 20px;
+  background: linear-gradient(to bottom, #ffe6f0, #fce4ec);
+  color: #2b2b2b;
+  font-family: 'Segoe UI', sans-serif;
+}
+
+.final-letter .section-header h2 {
+  font-size: 2rem;
+  color: #ff4d6d;
+  text-align: center;
+  margin-bottom: 30px;
+  position: relative;
+  text-shadow: 0 0 8px rgba(255, 102, 153, 0.5);
+}
+
+.final-letter-content {
+  max-width: 800px;
+  margin: 0 auto;
+  background-color: #fff0f5;
+  padding: 30px;
+  border-radius: 20px;
+  box-shadow: 0 10px 25px rgba(255, 128, 171, 0.3);
+  line-height: 1.8;
+  font-size: 1.05rem;
+  animation: fadeInSlide 1.2s ease-in-out both;
+}
+
+.final-letter-content p {
+  white-space: pre-line;
+}
+
+@keyframes fadeInSlide {
+  0% {
+    opacity: 0;
+    transform: translateY(40px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
